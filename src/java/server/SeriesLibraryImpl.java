@@ -86,11 +86,7 @@ public class SeriesLibraryImpl implements SeriesLibrary {
        try{
           result = aLib.get(mediaTitle);
           ArrayList<Episode> arr = result.getEpisodes();
-          System.out.println("Contents of sl.getSeriesSeasonObj...: ");
-          for(int i = 0; i < arr.size(); i++){
-            System.out.println(arr.get(i).getEpisodeName());
-
-          }
+          
       }catch(Exception ex){
           System.out.println("exception in getSeriesSeasonObj: "+ex.getMessage());
        }
