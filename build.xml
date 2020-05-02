@@ -1,0 +1,130 @@
+<project name="Ser321 Spring 2020 Assign6" default="targets" basedir=".">
+
+   <!-- define tasks used in the prepare task for platform identification -->
+   <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+   <!-- set global properties for this build -->
+   <property name="src" value="./src" />
+   <property name="build" value="./classes" />
+   <property name="docs" value="./docs" />
+   <property name="lib" value="./lib" />
+   <property name="userId" value="userId.not.assigned" />
+   <property name="omdbKey" value="key.not.assigned" />
+   <property name="parentDir" value="${user.dir}${file.separator}" />
+   <property name="host.name" value="127.0.0.1"/>
+   <property name="port.num" value="8080"/>
+   
+
+
+
+   <path id="compile.classpath">
+      <pathelement location="${build}"/>
+      <fileset dir="${lib}">
+         <include name="*.jar"/>
+      </fileset>
+
+   </path>
+
+   <target name="targets">
+      <echo message="targets are clean, prepare, setup.javafx, compile, java.client, and server. "/>
+      <echo message="to run enter: ant sample -DuserId=${userId} -Domdbkey=${omdbkey}"/>
+   </target>
+
+   <target name="prepare">
+      <!-- Create the time stamp -->
+      <tstamp/>
+      <!-- Create the build directory structure used by compile -->
+      <echo message="home defined as: ${home}" />
+      <mkdir dir="${build}" />
+      <!-- Platform identification -->
+      <condition property="build.host.islinux">
+        <and>
+          <os family="unix" />
+          <not>
+            <contains string="${os.name}" substring="mac"
+                      casesensitive="false" />
+          </not>
+        </and>
+      </condition>
+      <condition property="build.host.platform" value="linux">
+        <isset property="build.host.islinux" />
+      </condition>
+
+      <condition property="build.host.ismac">
+        <and>
+          <os family="unix" />
+          <contains string="${os.name}" substring="mac" casesensitive="false"/>
+        </and>
+      </condition>
+      <condition property="build.host.platform" value="mac">
+        <isset property="build.host.ismac" />
+      </condition>
+
+      <fail unless="build.host.platform"
+            message="Building on ${os.name} is not supported" />
+      <echo message="build.host.platform is: ${build.host.platform}"/>
+   </target>
+
+   <target name="setup.javafx"
+           depends="prepare">
+     <if>
+       <isset property="build.host.ismac"/>
+         <then>
+           <echo message="detected property ismac is set"/>
+
+         </then>
+     <elseif>
+         <isset property="build.host.islinux"/>
+         <then>
+            <echo message="detected property islinux is set"/>
+
+         </then>
+     </elseif>
+     <else>
+         <echo message="failed to detect a host I know how to build on"/>
+     </else>
+     </if>
+   </target>
+
+   <target name="compile" depends="setup.javafx"
+           description="Compile Java sources">
+      <javac srcdir="${src}"
+             includeantruntime="false"
+             destdir="${build}">
+         <classpath refid="compile.classpath"/>
+      </javac>
+   </target>
+
+
+
+   <target name="clean">
+     <!-- Delete the ${build} and ${docs} directory trees -->
+     <delete dir="${build}" />
+     <delete dir="${javafxhome}"/>
+   </target>
+
+   <target name="java.client" depends="compile"
+           description="Start client">
+         <echo message="user.dir is: ${user.dir}"/>
+         <echo message=" ${host} ${port} ${userId} ${omdbKey}" />
+         <java classname="ser321.assign6.ckovacs1.java.client.MediaLibraryApp" fork="yes">
+           <classpath refid="compile.classpath"/>
+<!--           <sysproperty key="java.security.policy" value="policyClient"/> -->
+            <arg value="${host}"/>
+            <arg value="${port}"/>
+            <arg value="${userId}"/>
+            <!--e980cab9-->
+            <arg value="${omdbKey}"/>
+
+         </java>
+   </target>
+
+
+   <target name="server" depends="compile"
+           description="Using parallel task, start server and client">        
+         <java classname="ser321.assign6.ckovacs1.java.server.SeriesSeasonLibraryTCPJsonRPCServer" fork="yes">            
+           <arg value="${port}"/>
+           <classpath refid="compile.classpath"/>
+         </java>     
+   </target>
+
+</project>

@@ -1,0 +1,64 @@
+[
+ {
+  "Plot": "The comedic misadventures of Roy, Moss and their grifting supervisor Jen, a rag-tag team of IT support workers at a large corporation headed by a hotheaded yuppie.",
+  "Poster": "https://m.media-amazon.com/images/M/MV5BMjE5MThjMzAtNWVmNC00YThkLTlmNzktMTM3Yzk4YTZhMTgwXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg",
+  "Episodes": [
+   {
+    "Title": "Yesterday's Jam",
+    "imdbRating": "7.7"
+   },
+   {
+    "Title": "Calamity Jen",
+    "imdbRating": "8.3"
+   },
+   {
+    "Title": "Fifty-Fifty",
+    "imdbRating": "7.9"
+   },
+   {
+    "Title": "The Red Door",
+    "imdbRating": "8.0"
+   },
+   {
+    "Title": "Aunt Irma Visits",
+    "imdbRating": "8.2"
+   }
+  ],
+  "seriesSeason": "The IT Crowd - Season 1",
+  "imdbRating": "8.5",
+  "Genre": "Comedy"
+ },
+ {
+  "Plot": "The comedic misadventures of Roy, Moss and their grifting supervisor Jen, a rag-tag team of IT support workers at a large corporation headed by a hotheaded yuppie.",
+  "Poster": "https://m.media-amazon.com/images/M/MV5BMjE5MThjMzAtNWVmNC00YThkLTlmNzktMTM3Yzk4YTZhMTgwXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg",
+  "Episodes": [
+   {
+    "Title": "The Work Outing",
+    "imdbRating": "9.4"
+   },
+   {
+    "Title": "Return of the Golden Child",
+    "imdbRating": "8.2"
+   },
+   {
+    "Title": "Moss and the German",
+    "imdbRating": "8.3"
+   },
+   {
+    "Title": "The Dinner Party",
+    "imdbRating": "8.7"
+   },
+   {
+    "Title": "Smoke and Mirrors",
+    "imdbRating": "7.9"
+   },
+   {
+    "Title": "Men Without Women",
+    "imdbRating": "7.6"
+   }
+  ],
+  "seriesSeason": "The IT Crowd - Season 2",
+  "imdbRating": "8.5",
+  "Genre": "Comedy"
+ }
+]
