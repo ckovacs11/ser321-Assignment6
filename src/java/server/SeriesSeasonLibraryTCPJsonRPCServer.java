@@ -1,5 +1,30 @@
 package ser321.assign6.ckovacs1.java.server;
 
+/*
+* Copyright 2020 Curtis Kovacs,
+*
+* This software is the intellectual property of the author, and can not be
+distributed, used, copied, or
+* reproduced, in whole or in part, for any purpose, commercial or otherwise.
+The author grants the ASU
+* Software Engineering program the right to copy, execute, and evaluate this
+work for the purpose of
+* determining performance of the author in coursework, and for Software
+Engineering program evaluation,
+* so long as this copyright and right-to-use statement is kept in-tact in such
+use.
+* All other uses are prohibited and reserved to the author.
+*
+* Purpose: An class that acts as a controller in a MVC system
+*
+* Ser321 Principles of Distributed Software Systems
+* see http://pooh.poly.asu.edu/Ser321
+* @author Curtis Kovacs ckovacs1@asu.edu
+*
+Software Engineering, CIDSE, IAFSE, ASU Poly
+* @version March 2020
+*/
+
 import java.net.*;
 import java.io.*;
 import java.util.*;
@@ -20,7 +45,7 @@ public class SeriesSeasonLibraryTCPJsonRPCServer extends Thread {
         skeleton = new SeriesSeasonLibrarySkeleton(sl);
     }
 
-
+    //run() is executed when a new thread is started
     public void run() {
       try {
          OutputStream outSock = conn.getOutputStream();
@@ -50,8 +75,8 @@ public class SeriesSeasonLibraryTCPJsonRPCServer extends Thread {
       int id=0;
       try {
          if (args.length != 1) {
-            System.out.println("Usage: java ser321.tcpjsonrpc.server."+
-                               "StudentCollectionTCPJsonRPCServer [portNum]");
+            System.out.println("Usage: ant server"+
+                               "[host] [portNum]");
             System.exit(0);
          }
          int portNo = Integer.parseInt(args[0]);

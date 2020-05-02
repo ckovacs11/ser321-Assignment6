@@ -149,6 +149,7 @@ public class SeriesSeason {
      return ret;
   }
 
+  //converts the SeriesSeason object to json
   public JSONObject toJson(){
 
 
@@ -171,14 +172,12 @@ public class SeriesSeason {
     
     ssJson.put("Episodes", epArr);
 
-    System.out.println("SeriesSeason converted to json: ");
-    System.out.println(ssJson.toString());
+    
     return ssJson;
       
   }
 
-
-
+  
   public String getSeriesName(){
       return this.name_and_season;
   }

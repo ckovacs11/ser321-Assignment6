@@ -294,12 +294,7 @@ TreeSelectionListener {
 		debug("In treeWillExpand with path: "+tee.getPath());
 	}
 
-	// TODO:
-	// this will be called when you click on a node.
-	// It will update the node based on the information stored in the library
-	// this will need to change since your library will be of course totally different
-	// extremely simplified! E.g. make sure that you display sensible content when the root,
-	// the My Series, the Series/Season, and Episode nodes are selected
+	//Updates the GUI when a node is clicked
 	public void valueChanged(TreeSelectionEvent e) {
 		
 			tree.removeTreeSelectionListener(this);
@@ -403,7 +398,7 @@ TreeSelectionListener {
 		inLibrary = false;
 	}
 
-	
+	//performs an action when a button is selected
 	public void actionPerformed(ActionEvent e){
 
 		tree.removeTreeSelectionListener(this);

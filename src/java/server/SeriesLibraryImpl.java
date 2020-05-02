@@ -70,6 +70,8 @@ public class SeriesLibraryImpl implements SeriesLibrary {
           System.out.println("Exception reading "+fileName+": "+ex.getMessage());
        }
     }
+
+    //gets the list of seriesSeasons
     public synchronized String[] getSeriesSeasonList() {
        String[] result = null;
        try{
@@ -81,6 +83,7 @@ public class SeriesLibraryImpl implements SeriesLibrary {
        return result;
     }
 
+    //gets the specified SeriesSeason object
     public synchronized SeriesSeason getSeriesSeasonObj(String mediaTitle) {
        SeriesSeason result = null;
        try{
@@ -93,6 +96,7 @@ public class SeriesLibraryImpl implements SeriesLibrary {
        return result;
     }
 
+    //adds a seriesSeason object to the library
     public synchronized boolean addSeriesSeason(SeriesSeason md) {
        boolean result = false;
        System.out.println("Adding: "+ md.getSeriesName());
@@ -105,6 +109,7 @@ public class SeriesLibraryImpl implements SeriesLibrary {
        return result;
     }
 
+    //removes a Seriesseason object from the library
     public synchronized boolean removeSeriesSeason(SeriesSeason ss) {
     String mediaTitle = ss.getSeriesName();
        boolean result = false;
@@ -118,6 +123,7 @@ public class SeriesLibraryImpl implements SeriesLibrary {
        return result;
     }
 
+    //saves the library to series.json
     public synchronized boolean saveLibraryToFile(){
 
       boolean ret = true;
@@ -150,6 +156,7 @@ public class SeriesLibraryImpl implements SeriesLibrary {
 
     }
 
+    //restores the library from the series.json file
     public synchronized boolean restoreLibraryFromFile(){
       boolean ret = true;
 
